@@ -2,6 +2,7 @@ import "./App.css";
 import Search from "./components/Search";
 import Pokemon from "./components/Pokemon";
 import TypeList from "./components/TypeList";
+import MyCollection from "./components/MyCollection";
 import React, { Component } from "react";
 import axios from "axios";
 
@@ -31,6 +32,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <h1>PokeDex</h1>
         <Search displayPokemon={this.displayPokemon} isFound={this.isFound} />
         <Pokemon data={this.state.pokemonData} clickedType={this.clickedType} />
         <TypeList
@@ -38,6 +40,7 @@ class App extends Component {
           displayPokemon={this.displayPokemon}
         />
         {!this.state.isFound && <p>Pokemon not found</p>}
+        <MyCollection />
       </div>
     );
   }
