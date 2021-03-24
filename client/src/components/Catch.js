@@ -5,7 +5,7 @@ export default function Catch({ pokemon }) {
   let [isCatched, setIsCatched] = useState(Boolean);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/api/collection").then((res) => {
+    axios.get("/api/collection").then((res) => {
       let found = res.data.filter((name) => name === pokemon);
       if (found.length === 0) {
         setIsCatched(false);
@@ -15,11 +15,11 @@ export default function Catch({ pokemon }) {
     });
   }, [pokemon]);
   const catchPokemon = () => {
-    axios.post(`http://localhost:3001/api/collection/catch/${pokemon}`);
+    axios.post(`/api/collection/catch/${pokemon}`);
     setIsCatched(true);
   };
   const releasePokemon = () => {
-    axios.delete(`http://localhost:3001/api/collection/release/${pokemon}`);
+    axios.delete(`/api/collection/release/${pokemon}`);
     setIsCatched(false);
   };
   return (

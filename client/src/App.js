@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   clickedType(type) {
-    axios.get(`http://localhost:3001/api/type/${type}`).then((res) => {
+    axios.get(`/api/type/${type}`).then((res) => {
       this.setState({ typeList: res.data });
     });
   }

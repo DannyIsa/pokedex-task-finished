@@ -17,7 +17,7 @@ export default class Search extends React.Component {
 
   handleSubmit(event) {
     axios
-      .get(`http://localhost:3001/api/pokemon/${this.state.value}`)
+      .get(`/api/pokemon/${this.state.value}`)
       .then((res) => {
         this.props.displayPokemon(res.data);
         this.props.isFound(true);
